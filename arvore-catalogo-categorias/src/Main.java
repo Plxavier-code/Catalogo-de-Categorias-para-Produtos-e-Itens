@@ -8,11 +8,13 @@ public class Main {
         Scanner input = new Scanner(System.in);
         String menu = "\n0 - Sair\n"
                 + "1 - Inserir Categoria\n"
-                + "2 - Definir Subcategoria (pai -> filho)\n"
-                + "3 - Buscar Categoria pelo Nome\n"
-                + "4 - Remover Categoria\n"
-                + "5 - Listar Árvore de Categorias\n"
-                + "6 - Gerar Árvore de Navegação (folhas)\n"
+                + "2 - Inserir Produto\n"
+                + "3 - Definir Subcategoria (pai -> filho)\n"
+                + "4 - Associas produto à categoria\n"
+                + "5 - Buscar Categoria pelo Nome\n"
+                + "6 - Remover Categoria\n"
+                + "7 - Listar Árvore de Categorias\n"
+                + "8 - Gerar Árvore de Navegação (folhas)\n"
                 + "\nDigite a opção desejada:";
 
         String saida = "";
@@ -25,7 +27,7 @@ public class Main {
                 input.nextLine();
             } catch (InputMismatchException e) {
                 input.nextLine();
-                System.out.println("Opção inválida! Informe um número entre 0 e 6: ");
+                System.out.println("Opção inválida! Informe um número entre 0 e 8: ");
                 opcao=-1;
                 continue;
             }
@@ -56,6 +58,14 @@ public class Main {
                     break;
 
                 case 6:
+
+                    break;
+
+                case 7:
+
+                    break;
+
+                case 8:
 
                     break;
 

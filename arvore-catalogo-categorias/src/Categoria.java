@@ -7,10 +7,12 @@ public class Categoria {
     private String descricao;
     private Categoria pai;
     private List<Categoria> filhos;
+    private List<Produto> produtos;
 
     public Categoria(String nome) {
         this.nome = nome;
         this.filhos = new LinkedList<>();
+        this.produtos = new LinkedList<>();
     }
 
     public Categoria(String nome, String codigo, String descricao) {
@@ -18,19 +20,30 @@ public class Categoria {
         this.codigo = codigo;
         this.descricao = descricao;
         this.filhos = new LinkedList<>();
+        this.produtos = new LinkedList<>();
     }
 
-    // Método para adicionar filho
+    // Adicionar filho
     public void adicionarFilho(Categoria filho) {
         filho.setPai(this);
         this.filhos.add(filho);
     }
 
-    // Método para remover filho
+    // Remover filho
     public void removerFilho(Categoria filho) {
         if (this.filhos.remove(filho)) {
             filho.setPai(null);
         }
+    }
+
+    // Adicionar um produto à categoria
+    public void adicionarProduto(Produto produto) {
+        this.produtos.add(produto);
+    }
+
+    // Remover um produto da categoria
+    public void removerProduto(Produto produto) {
+        this.produtos.remove(produto);
     }
 
     // Verifica se é folha
@@ -46,6 +59,7 @@ public class Categoria {
         return this.pai.getNivel() + 1;
     }
 
+    //Getters e setters
     public String getNome() {
         return nome;
     }
@@ -84,5 +98,13 @@ public class Categoria {
 
     public void setFilhos(List<Categoria> filhos) {
         this.filhos = filhos;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 }
