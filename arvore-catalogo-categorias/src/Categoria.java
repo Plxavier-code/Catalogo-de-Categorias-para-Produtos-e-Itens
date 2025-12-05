@@ -5,7 +5,6 @@ public class Categoria {
     private String nome;
     private String codigo;
     private String descricao;
-
     private Categoria pai;
     private List<Categoria> filhos;
 
@@ -19,6 +18,32 @@ public class Categoria {
         this.codigo = codigo;
         this.descricao = descricao;
         this.filhos = new LinkedList<>();
+    }
+
+    // Método para adicionar filho
+    public void adicionarFilho(Categoria filho) {
+        filho.setPai(this);
+        this.filhos.add(filho);
+    }
+
+    // Método para remover filho
+    public void removerFilho(Categoria filho) {
+        if (this.filhos.remove(filho)) {
+            filho.setPai(null);
+        }
+    }
+
+    // Verifica se é folha
+    public boolean isFolha() {
+        return this.filhos.isEmpty();
+    }
+
+    // Obtém o nível na árvore (0 para raiz, 1, 2, ...)
+    public int getNivel() {
+        if (this.pai == null) {
+            return 0;
+        }
+        return this.pai.getNivel() + 1;
     }
 
     public String getNome() {

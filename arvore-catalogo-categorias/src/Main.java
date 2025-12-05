@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -19,8 +20,15 @@ public class Main {
 
         do {
             System.out.println(menu);
-            opcao = input.nextInt();
-            input.nextLine();
+            try {
+                opcao = input.nextInt();
+                input.nextLine();
+            } catch (InputMismatchException e) {
+                input.nextLine();
+                System.out.println("Opção inválida! Informe um número entre 0 e 6: ");
+                opcao=-1;
+                continue;
+            }
 
             switch (opcao) {
                 case 0:
