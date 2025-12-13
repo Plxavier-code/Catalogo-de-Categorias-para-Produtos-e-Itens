@@ -7,7 +7,8 @@ import java.util.List;
  * Implementa as funcionalidades: Associação (Subcategoria e Produto) e Lógica
  * de Busca.
  * 
- * 
+ *
+ * @author Matheus Pereira Rodrigues
  * @author Pedro Lucas Dos Santos Xavier
  * @author Paulo Vitor Dias Soares
  * @author Sávio Neri Pessoa 
@@ -279,7 +280,7 @@ public class CatalogoControll {
      * @param atual A categoria sendo analisada no momento.
      * @autor Osmir Santos Meira.
      */
-    private voiod percorrerParaGerarNavegacao(Categoria atual){
+    private void percorrerParaGerarNavegacao(Categoria atual){
         // 2. Usar o método isFolha() da classe Categoria para identificar as categorias terminais.
         if (atual.isFolha()) {
 
@@ -290,7 +291,7 @@ public class CatalogoControll {
             // imprimir caminho
             System.out.println("Rota: " + caminho);
         } else {
-            List<Categoria> filho = atual.getFilhos();
+            List<Categoria> filhos = atual.getFilhos();
             if (filhos != null){
                 for (Categoria filho : filhos){
                     percorrerParaGerarNavegacao(filho);

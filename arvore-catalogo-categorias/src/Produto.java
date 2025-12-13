@@ -2,7 +2,7 @@
  * Representa um produto do catálogo, com nome, código, preço e marca.
  * Esta classe é usada para armazenar as informações básicas de cada item.
  *
- * @author Matheus  Pereira  Rodrigues
+ * @author Matheus Pereira Rodrigues
  * @author Pedro Lucas Dos Santos Xavier
  * @since 2025
  */

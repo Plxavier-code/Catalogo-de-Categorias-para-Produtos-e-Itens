@@ -10,7 +10,6 @@ import java.util.List;
  * @author Matheus Pereira Rodrigues 
  * @since 2025
  */
-
 public class Categoria {
     private String nome;
     private String codigo;
@@ -51,11 +50,9 @@ public class Categoria {
     //METODOS:
 
     /**
-     * Cria uma categoria com nome, código e descrição.
+     * Adiciona uma subcategoria (filho) desta categoria.
      *
-     * @param nome      Nome da categoria
-     * @param codigo    Código identificador da categoria
-     * @param descricao Descrição textual da categoria
+     * @param filho Categoria filha a ser adicionada
      */
     public void adicionarFilho(Categoria filho) {
         filho.setPai(this);
@@ -208,7 +205,7 @@ public class Categoria {
         this.filhos = filhos;
     }
     
-/**
+     /**
      * Retorna a lista de produtos associados diretamente a esta categoria.
      *
      * @return Lista de produtos da categoria

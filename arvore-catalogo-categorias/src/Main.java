@@ -158,7 +158,7 @@ public class Main {
 
                 case 8:
                     System.out.println("\n=== Gerando Árvore de Navegação ===");
-                    controle.gerarArvoreDeNavegacao();
+                    controle.gerarArvoresDeNavegacao();
                     break;
             }
 
