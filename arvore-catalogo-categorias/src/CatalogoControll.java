@@ -188,6 +188,49 @@ public class CatalogoControll {
         }
     }
 
+    /**
+     * Implementa o requisito: Geração da Árvore de Navegação (Folhas).
+     * Busca todos os caminhos que terminam em um nó folha.
+     * @autor Osmir Santos Meira
+     */
+    public void gerarArvoresDeNavegacao() {
+        // Verifica se a árvore está vazia (raiz é null)
+        if (this.raiz == null) {
+            System.out.println("\n[AVISO] O catálogo está vazio. Nenhuma rota de navegação disponível.");
+            return;
+        }
+
+        System.out.println("\n=== Árvore de Navegação (Rotas Finais) ===");
+        // 1. Fazer uma travessia (recursiva) na árvore.
+        percorrerParaGerarNavegacao(this.raiz);
+        System.out.println("==========================================");
+    }
+
+    /**
+     * Método auxiliar recursivo para percorrer a árvore.
+     * @param atual A categoria sendo analisada no momento.
+     * @autor Osmir Santos Meira
+     */
+    private voiod percorrerParaGerarNavegacao(Categoria atual){
+        // 2. Usar o método isFolha() da classe Categoria para identificar as categorias terminais.
+        if (atual.isFolha()) {
+
+            // 3. Para cada folha encontrada, chamar o método "buscarCaminhoCompleto"
+            // O método espera uma String, então passamos atual.getNome()
+            String caminho = buscarCaminhoCompleto(atual.getNome());
+
+            // imprimir caminho
+            System.out.println("Rota: " + caminho);
+        } else {
+            List<Categoria> filho = atual.getFilhos();
+            if (filhos != null){
+                for (Categoria filho : filhos){
+                    percorrerParaGerarNavegacao(filho);
+                }
+            }
+        }
+    }
+
     // GETTERS E SETTERS
 
     public Categoria getRaiz() {

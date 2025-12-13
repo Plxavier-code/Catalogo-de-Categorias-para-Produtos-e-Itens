@@ -106,13 +106,12 @@ public class Main {
                     break;
 
                 case 8:
-
+                    System.out.println("\n=== Gerando Árvore de Navegação ===");
+                    controle.gerarArvoreDeNavegacao();
                     break;
-
             }
 
         } while (opcao != 0);
-
         input.close();
     }
     
