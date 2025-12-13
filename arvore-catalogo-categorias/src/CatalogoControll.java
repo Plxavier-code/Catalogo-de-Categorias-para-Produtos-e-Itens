@@ -191,7 +191,7 @@ public class CatalogoControll {
     /**
      * Implementa o requisito: Geração da Árvore de Navegação (Folhas).
      * Busca todos os caminhos que terminam em um nó folha.
-     * @autor Osmir Santos Meira
+     * @autor Osmir Santos Meira.
      */
     public void gerarArvoresDeNavegacao() {
         // Verifica se a árvore está vazia (raiz é null)
@@ -209,7 +209,7 @@ public class CatalogoControll {
     /**
      * Método auxiliar recursivo para percorrer a árvore.
      * @param atual A categoria sendo analisada no momento.
-     * @autor Osmir Santos Meira
+     * @autor Osmir Santos Meira.
      */
     private voiod percorrerParaGerarNavegacao(Categoria atual){
         // 2. Usar o método isFolha() da classe Categoria para identificar as categorias terminais.

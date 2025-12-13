@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e34924f0-8c21-4abf-a9a1-c7a94d5c3a99" name="Changes" comment="">
+    <list default="true" id="e34924f0-8c21-4abf-a9a1-c7a94d5c3a99" name="Changes" comment="Atribuições Osmir Santos Meira">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arvore-catalogo-categorias/src/CatalogoControll.java" beforeDir="false" afterPath="$PROJECT_DIR$/arvore-catalogo-categorias/src/CatalogoControll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arvore-catalogo-categorias/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/arvore-catalogo-categorias/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +15,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "SmithSk42"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Plxavier-code/Catalogo-de-Categorias-para-Produtos-e-Itens.git",
+    "accountId": "56594d78-6cb8-44b9-8dd7-48219a425ad3"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -56,8 +66,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764862067920</updated>
-      <workItem from="1765648648662" duration="4132000" />
+      <workItem from="1765648648662" duration="5267000" />
     </task>
+    <task id="LOCAL-00001" summary="Atribuições Osmir Santos Meira">
+      <option name="closed" value="true" />
+      <created>1765652967821</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765652967821</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,5 +92,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Atribuições Osmir Santos Meira" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atribuições Osmir Santos Meira" />
   </component>
 </project>
