@@ -6,9 +6,9 @@ import java.util.Scanner;
  * Exibe o menu de operações do catálogo, lê as opções do usuário
  * e delega as ações para a classe {@link CatalogoControll}.
  *
- * @author Matheus Pereira Rodrigues 
- * @author Pedro Lucas Dos Santos Xavier 
- * @author Paulo Vitor Dias Soares 
+ * @author Matheus Pereira Rodrigues
+ * @author Pedro Lucas Dos Santos Xavier
+ * @author Paulo Vitor Dias Soares
  * @since 2025
  */
 public class Main {
@@ -20,7 +20,7 @@ public class Main {
      *
      * @param args Argumentos de linha de comando (não utilizados)
      */
-    public  static void main(String[] args) {
+    public static void main(String[] args) {
         CatalogoControll controle = new CatalogoControll();
 
         Scanner input = new Scanner(System.in);
@@ -46,7 +46,7 @@ public class Main {
             } catch (InputMismatchException e) {
                 input.nextLine();
                 System.out.println("Opção inválida! Informe um número entre 0 e 8: ");
-                opcao=-1;
+                opcao = -1;
                 continue;
             }
 
@@ -58,14 +58,14 @@ public class Main {
                 case 1:
                     System.out.println("\n=== Inserir Categoria ===");
                     System.out.println("Insira o nome da categoria: ");
-                    String nome=input.nextLine();
-                    
+                    String nome = input.nextLine();
+
                     System.out.println("Insira o código da categoria: ");
-                    String codigo=input.nextLine();
-                    
+                    String codigo = input.nextLine();
+
                     System.out.println("Insira a descrição da categoria ");
-                    String descricao=input.nextLine();
-                
+                    String descricao = input.nextLine();
+
                     controle.inserirCategoria(nome, codigo, descricao);
                     System.out.println("Categoria inserida com sucesso");
                     break;
@@ -73,37 +73,70 @@ public class Main {
                 case 2:
                     System.out.println("\n=== Inserir Produto ===");
                     System.out.println("Insira o nome do produto: ");
-                    String nomeProduto=input.nextLine();
-                
+                    String nomeProduto = input.nextLine();
+
                     System.out.println("Insira o código do produto: ");
-                    String codigoProduto=input.nextLine();
-                     double preco;
-                     while(true){
-                        try{
-                         System.out.println("Insira o preço do produto");
-                          preco=input.nextDouble();
-                          if(preco<0){
-                            System.out.println("ERRO: Entrada invalida");
-                            continue;
-                          }
-                          break;
-                        }catch(InputMismatchException e){
-                             System.out.println("Entrada inválida! Digite um número (ex: 10.50).\n");
-                             input.nextLine();
+                    String codigoProduto = input.nextLine();
+                    double preco;
+                    while (true) {
+                        try {
+                            System.out.println("Insira o preço do produto");
+                            preco = input.nextDouble();
+                            if (preco < 0) {
+                                System.out.println("ERRO: Entrada invalida");
+                                continue;
+                            }
+                            break;
+                        } catch (InputMismatchException e) {
+                            System.out.println("Entrada inválida! Digite um número (ex: 10.50).\n");
+                            input.nextLine();
                         }
-                     }
+                    }
                     input.nextLine();
                     System.out.println("Insira a  marca do produto ");
-                    String marca=input.nextLine();
+                    String marca = input.nextLine();
                     controle.inserirProduto(nomeProduto, codigoProduto, preco, marca);
-                      System.out.println("Produto inserido com sucesso");
+                    System.out.println("Produto inserido com sucesso");
                     break;
 
                 case 3:
+                    System.out.println("\nDEFINIR SUBCATEGORIA");
+                    System.out.print("Nome da categoria PAI: ");
+                    String nomePai = input.nextLine();
+                    System.out.print("Nome da categoria FILHA: ");
+                    String nomeFilho = input.nextLine();
+
+                    boolean sucesso = controle.definirSubcategoria(nomePai, nomeFilho);
+                    if (sucesso) {
+                        System.out.println("Subcategoria definida com sucesso!");
+                    } else {
+                        System.out.println("Falha ao definir subcategoria.");
+                    }
 
                     break;
 
                 case 4:
+                    System.out.println("\n=== ASSOCIAR PRODUTO À CATEGORIA ===");
+                    System.out.print("Nome da categoria: ");
+                    String nomeCategoriaProd = input.nextLine();
+                    System.out.print("Nome do produto: ");
+                    String nomeProd = input.nextLine();
+                    System.out.print("Código do produto: ");
+                    String codigoProd = input.nextLine();
+                    System.out.print("Preço do produto: ");
+                    double precoProduto = input.nextDouble();
+                    input.nextLine(); // Limpar buffer
+                    System.out.print("Marca do produto: ");
+                    String marcaProduto = input.nextLine();
+
+                    Produto produto = new Produto(nomeProd, codigoProd, precoProduto, marcaProduto);
+                    boolean associado = controle.associarProduto(nomeCategoriaProd, produto);
+
+                    if (associado) {
+                        System.out.println("Produto associado com sucesso!");
+                    } else {
+                        System.out.println("Falha ao associar produto.");
+                    }
 
                     break;
 
@@ -132,5 +165,5 @@ public class Main {
         } while (opcao != 0);
         input.close();
     }
-    
+
 }
