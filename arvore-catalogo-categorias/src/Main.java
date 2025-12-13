@@ -10,7 +10,7 @@ public class Main {
                 + "1 - Inserir Categoria\n"
                 + "2 - Inserir Produto\n"
                 + "3 - Definir Subcategoria (pai -> filho)\n"
-                + "4 - Associas produto à categoria\n"
+                + "4 - Associar Produto à Categoria\n"
                 + "5 - Buscar Categoria pelo Nome\n"
                 + "6 - Remover Categoria\n"
                 + "7 - Listar Árvore de Categorias\n"
@@ -90,7 +90,10 @@ public class Main {
                     break;
 
                 case 5:
-
+                    System.out.println("\nInforme o nome da categoria: ");
+                    String nomeCategoria = input.nextLine();
+                    saida = controle.buscarCaminhoCompleto(nomeCategoria);
+                    System.out.println(saida);
                     break;
 
                 case 6:
