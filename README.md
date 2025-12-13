@@ -100,7 +100,7 @@ Ao utilizar a opção 7 - Listar Árvore de Categorias, o sistema exibe a estrut
 
 === LISTAGEM DA ÁRVORE HIERÁRQUICA E PRODUTOS ===
 
-[Raiz] Categoria: Eletrônicos (Cód: 001)
+    |-> [Raiz] Categoria: Eletrônicos (Cód: 001)
 
     |-- Categoria: Computadores (Cód: 002)
 
@@ -113,7 +113,7 @@ Ao utilizar a opção 7 - Listar Árvore de Categorias, o sistema exibe a estrut
     |-- Categoria: Smartphones (Cód: 004)
 
     |-> [Produto] iPhone 15 | R$ 6000.00 | Marca: Apple
-    
+
 =================================================
 
 
