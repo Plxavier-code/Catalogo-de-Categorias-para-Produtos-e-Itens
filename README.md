@@ -99,13 +99,21 @@ java Main
 Ao utilizar a opção 7 - Listar Árvore de Categorias, o sistema exibe a estrutura formatada:
 
 === LISTAGEM DA ÁRVORE HIERÁRQUICA E PRODUTOS ===
+
 [Raiz] Categoria: Eletrônicos (Cód: 001)
+
     |-- Categoria: Computadores (Cód: 002)
-        |-- Categoria: Notebooks (Cód: 003)
-            -> [Produto] MacBook Air | R$ 7500.00 | Marca: Apple
-            -> [Produto] Dell XPS | R$ 8900.00 | Marca: Dell
+
+    |-- Categoria: Notebooks (Cód: 003)
+
+    |-> [Produto] MacBook Air | R$ 7500.00 | Marca: Apple
+
+    |-> [Produto] Dell XPS | R$ 8900.00 | Marca: Dell
+
     |-- Categoria: Smartphones (Cód: 004)
-        -> [Produto] iPhone 15 | R$ 6000.00 | Marca: Apple
+
+    |-> [Produto] iPhone 15 | R$ 6000.00 | Marca: Apple
+    
 =================================================
 
 
