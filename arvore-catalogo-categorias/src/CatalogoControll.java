@@ -42,7 +42,7 @@ public class CatalogoControll {
     public void inserirCategoria(String nome, String categoriaCodigo, String descricao) {
         Categoria novaCategoria = new Categoria(nome, categoriaCodigo, descricao);
         if (raiz == null) {
-            raiz = novaCategoria;              // primeira categoria vira raiz
+            raiz = novaCategoria; // primeira categoria vira raiz
         } else {
             raiz.adicionarFilho(novaCategoria); // demais: filhas diretas da raiz
         }
@@ -50,7 +50,7 @@ public class CatalogoControll {
 
     public Produto inserirProduto(String nome, String produtoCodigo, double preco, String marca) {
         Produto novoProduto = new Produto(nome, produtoCodigo, preco, marca);
-        produtosCadastrados.add(novoProduto);   // opcional: manter na lista auxiliar
+        produtosCadastrados.add(novoProduto); // opcional: manter na lista auxiliar
         return novoProduto;
     }
 
@@ -137,6 +137,55 @@ public class CatalogoControll {
             return categoria.getNome();
         }
         return buscarCaminhoRec(categoria.getPai()) + " > " + categoria.getNome();
+    }
+
+    /**
+     * Método principal para iniciar a listagem da árvore hierárquica.
+     * Chama o método recursivo a partir da raiz.
+     * * @author Sávio Neri Pessoa
+     */
+    public void listarArvore() {
+        if (raiz == null) {
+            System.out.println("\n[AVISO] O catálogo está vazio (sem categorias).");
+            return;
+        }
+        System.out.println("\n=== LISTAGEM DA ÁRVORE HIERÁRQUICA E PRODUTOS ===");
+        exibirArvoreRecursivo(raiz);
+        System.out.println("=================================================");
+    }
+
+    /**
+     * Método auxiliar recursivo para percorrer e imprimir a árvore.
+     * Exibe a categoria, percorre as subcategorias e depois lista os produtos
+     * associados.
+     * * @author Sávio Neri Pessoa
+     * * @param atual A categoria sendo visitada no momento.
+     */
+    private void exibirArvoreRecursivo(Categoria atual) {
+        // 1. Calcula a indentação baseada no nível da categoria na árvore
+        // Usamos 4 espaços por nível conforme sugestão, ou poderia ser "|--"
+        String indentacao = "    ".repeat(atual.getNivel());
+        String prefixo = (atual.getNivel() == 0) ? "[Raiz] " : "|-- ";
+
+        // 2. Exibe a Categoria
+        System.out
+                .println(indentacao + prefixo + "Categoria: " + atual.getNome() + " (Cód: " + atual.getCodigo() + ")");
+
+        // 3. Percorre e exibe as subcategorias (recursividade)
+        for (Categoria filho : atual.getFilhos()) {
+            exibirArvoreRecursivo(filho);
+        }
+
+        // 4. Exibe a lista de produtos da categoria atual
+        // Conforme PDF: "exibir a lista de produtos se ela existir, após listar as
+        // subcategorias"
+        if (!atual.getProdutos().isEmpty()) {
+            for (Produto p : atual.getProdutos()) {
+                System.out.println(indentacao + "    " + "-> [Produto] " + p.getNome()
+                        + " | R$ " + String.format("%.2f", p.getPreco())
+                        + " | Marca: " + p.getMarca());
+            }
+        }
     }
 
     // GETTERS E SETTERS
