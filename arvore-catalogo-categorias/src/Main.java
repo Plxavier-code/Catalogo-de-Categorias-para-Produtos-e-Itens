@@ -1,7 +1,25 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Classe principal da aplicação em console.
+ * Exibe o menu de operações do catálogo, lê as opções do usuário
+ * e delega as ações para a classe {@link CatalogoControll}.
+ *
+ * @author Matheus Pereira Rodrigues 
+ * @author Pedro Lucas Dos Santos Xavier 
+ * @author Paulo Vitor Dias Soares 
+ * @since 2025
+ */
 public class Main {
+
+    /**
+     * Ponto de entrada da aplicação.
+     * Cria o controlador do catálogo, inicializa o Scanner e executa
+     * o loop do menu até que o usuário escolha a opção de saída (0).
+     *
+     * @param args Argumentos de linha de comando (não utilizados)
+     */
     public  static void main(String[] args) {
         CatalogoControll controle = new CatalogoControll();
 
