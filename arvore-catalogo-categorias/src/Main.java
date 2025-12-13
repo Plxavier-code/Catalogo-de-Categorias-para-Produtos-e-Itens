@@ -101,7 +101,8 @@ public class Main {
                     break;
 
                 case 7:
-
+                    System.out.println("\n=== Árvore de Categorias ===");
+                    controle.listarArvore();
                     break;
 
                 case 8:
