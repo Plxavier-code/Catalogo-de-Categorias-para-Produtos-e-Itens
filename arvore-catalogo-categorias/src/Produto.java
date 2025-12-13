@@ -3,6 +3,15 @@ public class Produto {
     private String codigo;
     private double preco;
     private String marca;
+    //construtor 
+    public Produto(String nome, String codigo, double preco, String marca){
+        
+        
+        this.nome=nome;
+        this.codigo=codigo;
+        this.preco=preco;
+        this.marca=marca;
+    }
 
     //Getters e setters
     public String getNome() {

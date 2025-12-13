@@ -38,11 +38,47 @@ public class Main {
                     break;
 
                 case 1:
-
+                    System.out.println("\n=== Inserir Categoria ===");
+                    System.out.println("Insira o nome da categoria: ");
+                    String nome=input.nextLine();
+                    
+                    System.out.println("Insira o código da categoria: ");
+                    String codigo=input.nextLine();
+                    
+                    System.out.println("Insira a descrição da categoria ");
+                    String descricao=input.nextLine();
+                
+                    controle.inserirCategoria(nome, codigo, descricao);
+                    System.out.println("Categoria inserida com sucesso");
                     break;
 
                 case 2:
-
+                    System.out.println("\n=== Inserir Produto ===");
+                    System.out.println("Insira o nome do produto: ");
+                    String nomeProduto=input.nextLine();
+                
+                    System.out.println("Insira o código do produto: ");
+                    String codigoProduto=input.nextLine();
+                     double preco;
+                     while(true){
+                        try{
+                         System.out.println("Insira o preço do produto");
+                          preco=input.nextDouble();
+                          if(preco<0){
+                            System.out.println("ERRO: Entrada invalida");
+                            continue;
+                          }
+                          break;
+                        }catch(InputMismatchException e){
+                             System.out.println("Entrada inválida! Digite um número (ex: 10.50).\n");
+                             input.nextLine();
+                        }
+                     }
+                    input.nextLine();
+                    System.out.println("Insira a  marca do produto ");
+                    String marca=input.nextLine();
+                    controle.inserirProduto(nomeProduto, codigoProduto, preco, marca);
+                      System.out.println("Produto inserido com sucesso");
                     break;
 
                 case 3:
@@ -65,7 +101,8 @@ public class Main {
                     break;
 
                 case 7:
-
+                    System.out.println("\n=== Árvore de Categorias ===");
+                    controle.listarArvore();
                     break;
 
                 case 8:
@@ -78,4 +115,5 @@ public class Main {
 
         input.close();
     }
+    
 }
