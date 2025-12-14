@@ -187,6 +187,37 @@ public class CatalogoControll {
             }
         }
     }
+    /**
+     * Remove uma categoria e toda sua subárvore.
+     * @param nome O nome da categoria a ser removida.
+     * @return true se removeu com sucesso, false se não encontrou ou erro.
+     */
+    public boolean removerCategoria(String nome) {
+        // Passo 1: Chama buscarCategoria para encontrar o alvo
+        Categoria alvo = buscarCategoria(nome);
+
+        // Validação: Se não encontrou a categoria
+        if (alvo == null) {
+            System.out.println("Erro: Categoria '" + nome + "' não encontrada.");
+            return false;
+        }
+
+        // Validação: Não podemos remover a Raiz principal do sistema
+        if (alvo == this.raiz) {
+            System.out.println("Erro: Não é possível remover a categoria Raiz.");
+            return false;
+        }
+
+        // Passo 2: Se a categoria não for a raiz, chama o método removerFilho() no objeto Pai
+        Categoria pai = alvo.getPai();
+        if (pai != null) {
+            pai.removerFilho(alvo);
+            System.out.println("Categoria '" + nome + "' removida com sucesso.");
+            return true;
+        }
+
+        return false;
+    }
 
     // GETTERS E SETTERS
 

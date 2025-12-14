@@ -97,8 +97,20 @@ public class Main {
                     break;
 
                 case 6:
+                    
+                    System.out.println("\n=== Remover Categoria ===");
+                    System.out.println("Insira o nome da categoria a remover: ");
+                    String nomeRemover = input.nextLine();
 
+                    boolean sucessoRemocao = controle.removerCategoria(nomeRemover);
+
+                    if (sucessoRemocao) {
+                        System.out.println("Sucesso! A categoria '" + nomeRemover + "' e todas as suas subcategorias foram removidas.");
+                    } else {
+                        System.out.println("Falha ao remover a categoria.");
+                    }
                     break;
+                    
 
                 case 7:
                     System.out.println("\n=== Árvore de Categorias ===");
