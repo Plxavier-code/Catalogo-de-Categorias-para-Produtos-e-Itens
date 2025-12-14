@@ -13,6 +13,7 @@ import java.util.List;
  * @author Paulo Vitor Dias Soares
  * @author Sávio Neri Pessoa
  * @author Osmir Santos Meira
+ * @author Ian Lima Vieira
  * @version 1.0
  * @since 2025
  */
