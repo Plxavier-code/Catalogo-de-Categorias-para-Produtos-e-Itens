@@ -9,6 +9,8 @@ import java.util.Scanner;
  * @author Matheus Pereira Rodrigues
  * @author Pedro Lucas Dos Santos Xavier
  * @author Paulo Vitor Dias Soares
+ * @author Sávio Neri Pessoa
+ * @author Osmir Santos Meira 
  * @since 2025
  */
 public class Main {

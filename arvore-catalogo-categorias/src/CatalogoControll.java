@@ -12,6 +12,7 @@ import java.util.List;
  * @author Pedro Lucas Dos Santos Xavier
  * @author Paulo Vitor Dias Soares
  * @author Sávio Neri Pessoa 
+ * @author Osmir Santos Meira 
  * @version 1.0
  * @since 2025
  */
@@ -29,7 +30,7 @@ public class CatalogoControll {
      * Lista auxiliar de produtos cadastrados no sistema.
      * Mantém referência a todos os produtos para facilitar buscas e associações.
      */
-    private List<Produto> produtosCadastrados;
+    private  List<Produto> produtosCadastrados;
 
     // CONSTRUTOR
 
@@ -211,7 +212,6 @@ public class CatalogoControll {
     /**
      * Método principal para iniciar a listagem da árvore hierárquica.
      * Chama o método recursivo a partir da raiz.
-     * * @author Sávio Neri Pessoa
      */
     public void listarArvore() {
         if (raiz == null) {
@@ -227,31 +227,19 @@ public class CatalogoControll {
      * Método auxiliar recursivo para percorrer e imprimir a árvore.
      * Exibe a categoria, percorre as subcategorias e depois lista os produtos
      * associados.
-     * * @author Sávio Neri Pessoa
      * * @param atual A categoria sendo visitada no momento.
      */
     private void exibirArvoreRecursivo(Categoria atual) {
-        // 1. Calcula a indentação baseada no nível da categoria na árvore
-        // Usamos 4 espaços por nível conforme sugestão, ou poderia ser "|--"
         String indentacao = "    ".repeat(atual.getNivel());
         String prefixo = (atual.getNivel() == 0) ? "[Raiz] " : "|-- ";
-
-        // 2. Exibe a Categoria
-        System.out
-                .println(indentacao + prefixo + "Categoria: " + atual.getNome() + " (Cód: " + atual.getCodigo() + ")");
-
-        // 3. Percorre e exibe as subcategorias (recursividade)
+        System.out.println(indentacao + prefixo + "Categoria: " + atual.getNome() + " (Cód: " + atual.getCodigo() + ")");
         for (Categoria filho : atual.getFilhos()) {
             exibirArvoreRecursivo(filho);
         }
-
-        // 4. Exibe a lista de produtos da categoria atual
-        // Conforme PDF: "exibir a lista de produtos se ela existir, após listar as
-        // subcategorias"
         if (!atual.getProdutos().isEmpty()) {
             for (Produto p : atual.getProdutos()) {
-                System.out.println(indentacao + "    " + "-> [Produto] " + p.getNome()
-                        + " | R$ " + String.format("%.2f", p.getPreco())
+                System.out.println(indentacao + "    " + "-> [Produto] " + p.getNome() 
+                + " | R$ " + String.format("%.2f", p.getPreco())
                         + " | Marca: " + p.getMarca());
             }
         }
@@ -260,7 +248,6 @@ public class CatalogoControll {
     /**
      * Implementa o requisito: Geração da Árvore de Navegação (Folhas).
      * Busca todos os caminhos que terminam em um nó folha.
-     * @autor Osmir Santos Meira.
      */
     public void gerarArvoresDeNavegacao() {
         // Verifica se a árvore está vazia (raiz é null)
@@ -278,17 +265,10 @@ public class CatalogoControll {
     /**
      * Método auxiliar recursivo para percorrer a árvore.
      * @param atual A categoria sendo analisada no momento.
-     * @autor Osmir Santos Meira.
      */
     private void percorrerParaGerarNavegacao(Categoria atual){
-        // 2. Usar o método isFolha() da classe Categoria para identificar as categorias terminais.
         if (atual.isFolha()) {
-
-            // 3. Para cada folha encontrada, chamar o método "buscarCaminhoCompleto"
-            // O método espera uma String, então passamos atual.getNome()
             String caminho = buscarCaminhoCompleto(atual.getNome());
-
-            // imprimir caminho
             System.out.println("Rota: " + caminho);
         } else {
             List<Categoria> filhos = atual.getFilhos();
